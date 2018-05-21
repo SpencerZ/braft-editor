@@ -21,7 +21,7 @@ export default class MediaPicker extends React.Component {
     confirmable: false,
     external: {
       url: '',
-      type: 'IMAGE'
+      type: 'SIDEBARIMAGE'
     },
     files: []
   }
@@ -41,7 +41,7 @@ export default class MediaPicker extends React.Component {
     this.setState({
       external: {
         url: '',
-        type: media.externalMedias.image ? 'IMAGE' : media.externalMedias.audio ? 'AUDIO' : media.externalMedias.video ? 'VIDEO' : ''
+        type: media.externalMedias.image ? 'SIDEBARIMAGE' : media.externalMedias.audio ? 'AUDIO' : media.externalMedias.video ? 'VIDEO' : ''
       }
     })
 
@@ -65,7 +65,7 @@ export default class MediaPicker extends React.Component {
     this.setState({
       external: {
         url: '',
-        type: media.externalMedias.image ? 'IMAGE' : media.externalMedias.audio ? 'AUDIO' : media.externalMedias.video ? 'VIDEO' : ''
+        type: media.externalMedias.image ? 'SIDEBARIMAGE' : media.externalMedias.audio ? 'AUDIO' : media.externalMedias.video ? 'VIDEO' : ''
       }
     })
 
@@ -141,7 +141,7 @@ export default class MediaPicker extends React.Component {
                     <button type="button" onClick={this.confirmAddExternal} disabled={!external.url.trim().length}>{language.base.confirm}</button>
                   </div>
                   <div data-type={external.type} className="braft-media-switch-external-type">
-                    {media.externalMedias.image ? <button type="button" onClick={this.switchExternalType} data-type="IMAGE">{language.media.image}</button> : null}
+                    {media.externalMedias.image ? <button type="button" onClick={this.switchExternalType} data-type="SIDEBARIMAGE">{language.media.image}</button> : null}
                     {media.externalMedias.audio ? <button type="button" onClick={this.switchExternalType} data-type="AUDIO">{language.media.audio}</button> : null}
                     {media.externalMedias.video ? <button type="button" onClick={this.switchExternalType} data-type="VIDEO">{language.media.video}</button> : null}
                   </div>
@@ -174,7 +174,7 @@ export default class MediaPicker extends React.Component {
           ) : ''
 
           switch (file.type) {
-            case 'IMAGE': 
+            case 'SIDEBARIMAGE': 
               previewerComponents = (
                 <div className="braft-media-image">
                   {progressMarker}
@@ -352,7 +352,7 @@ export default class MediaPicker extends React.Component {
           }
 
           if (files[index].type.indexOf('image/') === 0 && this.props.media.image) {
-            data.type = 'IMAGE'
+            data.type = 'SIDEBARIMAGE'
             this.mediaLibrary.addItems([data])
           } else if (files[index].type.indexOf('video/') === 0 && this.props.media.video) {
             data.type = 'VIDEO'
@@ -399,7 +399,7 @@ export default class MediaPicker extends React.Component {
       url = url.split('|')
       let name = url.length > 1 ? url[0] : this.props.language.mediaPicker.unnamedItem
       url = url.length > 1 ? url[1] : url[0]
-      let thumbnail = type === 'IMAGE' ? url : null
+      let thumbnail = type === 'SIDEBARIMAGE' ? url : null
       this.mediaLibrary.addItems([{
         thumbnail, url, name, type,
         id: new Date().getTime() + '_' + UniqueIndex(),
@@ -411,7 +411,7 @@ export default class MediaPicker extends React.Component {
         showExternalForm: false,
         external: {
           url: '',
-          type: 'IMAGE'
+          type: 'SIDEBARIMAGE'
         }
       })
     }

@@ -36,7 +36,9 @@ export default class BraftEditor extends EditorController {
     onRawChange: null,
     onFocus: null,
     onBlur: null,
-    onSave: null
+    onSave: null,
+    onItemEdit: null,
+    onHotSpotImageEdit: null
   }
 
   constructor (props) {
@@ -159,6 +161,11 @@ export default class BraftEditor extends EditorController {
     return this.mediaLibrary
   }
 
+  convertHTML = (htmlString) => {
+    const { fontFamilies } = this.props
+    return convertFromHTML(getFromHTMLConfig({ fontFamilies }))(convertCodeBlock(htmlString))
+  }
+
   setContent = (content, format) => {
 
     let convertedContent
@@ -250,6 +257,14 @@ export default class BraftEditor extends EditorController {
   onBlur = () => {
     this.isFocused = false
     this.props.onBlur && this.props.onBlur()
+  }
+
+  onItemEdit = (block, data) => {
+    this.props.onItemEdit && this.props.onItemEdit(block, data);
+  }
+
+  onHotSpotImageEdit = (block, data) => {
+    this.props.onHotSpotImageEdit && this.props.onHotSpotImageEdit(block, data);
   }
 
   handleReturn = (event) => {

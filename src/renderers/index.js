@@ -4,6 +4,8 @@ import { DefaultDraftBlockRenderMap } from 'draft-js'
 import Image from './atomic/Image'
 import Video from './atomic/Video'
 import Audio from './atomic/Audio'
+import Item from './atomic/Item'
+import HotSpotImage from './atomic/HotSpotImage';
 import HorizontalLine from './atomic/HorizontalLine'
 import _blockStyleFn from './styles/blockStyles'
 import _getCustomStyleMap from './styles/inlineStyles'
@@ -25,7 +27,7 @@ const getAtomicBlockComponent = (block, superProps) => (props) => {
     block, mediaData, entityKey
   }
 
-  if (mediaType === 'IMAGE') {
+  if (mediaType === 'SIDEBARIMAGE') {
     return <Image { ...mediaProps } />
   } else if (mediaType === 'AUDIO') {
     return <Audio { ...mediaProps } />
@@ -33,6 +35,10 @@ const getAtomicBlockComponent = (block, superProps) => (props) => {
     return <Video { ...mediaProps } />
   } else if (mediaType === 'HR') {
     return <HorizontalLine { ...mediaProps } />
+  }else if(mediaType === 'SIDEBARSEARCHITEM') {
+    return <Item { ...mediaProps } />
+  }else if(mediaType === 'SIDEBARHOTSPACEIMAGE') {
+    return <HotSpotImage {...mediaProps} />
   }
 
   return null

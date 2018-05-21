@@ -1,0 +1,87 @@
+@import '~sassinc';
+
+.braft-editor-custom-block {
+  position: relative;
+  display: inline-block;
+}
+
+.braft-editor-block-remove {
+  display: none;
+  position: absolute;
+  top: -13px;
+  right: -13px;
+  z-index: 1;
+  font-size: 22px;
+  width: 26px;
+  height: 26px;
+  color: #6AF;
+  cursor: pointer;
+  background-size: 26px 26px;
+  a {
+    width: 20px;
+    height: 20px;
+    speak: none;
+    font-size: 16px;
+    line-height: 16px;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+    font-style: normal;
+    -webkit-text-stroke-width: .2px;
+    text-decoration: none;
+    color: white;
+    background: #6AF;
+    border-radius: 10px;
+    padding-top: 2px;
+  }
+}
+
+.braft-editor-search-item-wrap {
+  background-color: #FFF;
+  width: 160px;
+  height: 228px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  .braft-editor-search-item-cover {
+    height: 158px;
+    width: 158px;
+    text-align: center;
+    position: relative;
+    .ice-img sharp {
+      display: inline-block;
+      overflow: hidden;
+      width: 158px;
+      height: 158px;
+    }
+    img {
+      max-height: 100%;
+      display: block;
+      max-width: none;
+      height: 158px;
+      opacity: 1;
+      width: 158px;
+      margin-left: 0px;
+      margin-top: 0px;
+    }
+  }
+  .braft-editor-search-item-trigger {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 24px;
+    background: rgba(0,0,0,.6);
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    line-height: 24px;
+  }
+  .braft-editor-search-item-title, .braft-editor-search-item-price {
+    font-size: 12px;
+    color: #999;
+    padding: 5px 10px;
+    display: block;
+    line-height: 1;
+  }
+}

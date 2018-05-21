@@ -1,6 +1,7 @@
 import React from 'react'
 import { Modifier, EditorState, SelectionState, RichUtils, AtomicBlockUtils } from 'draft-js'
 import { setBlockData, getSelectionEntity, removeAllInlineStyles } from 'draftjs-utils'
+import { detectColorsFromHTML, detectColorsFromRaw } from 'helpers/colors'
 
 export default class EditorController extends React.Component{
 
@@ -29,6 +30,14 @@ export default class EditorController extends React.Component{
   selectNextBlock = (block) => {
     const nextBlock = this.contentState.getBlockAfter(block.getKey())
     return nextBlock ? this.selectBlock(nextBlock) : this.applyChange(this.editorState)
+  }
+
+  editItemBlock = (block, mediaData) => {
+    this.onItemEdit(block, mediaData);
+  }
+
+  editHotSpopImageBlock = (block, mediaData) => {
+    this.onHotSpotImageEdit(block, mediaData);
   }
 
   removeBlock = (block) => {
@@ -228,6 +237,27 @@ export default class EditorController extends React.Component{
 
   replaceText = (text) => this.insertText(text)
 
+  insertHTML = (htmlString) => {
+
+    if (!htmlString) {
+      return this
+    }
+
+    try {
+      const rawContent = this.convertHTML(htmlString)
+      const { blockMap } = rawContent
+      const tempColors = detectColorsFromHTML(htmlString)
+      this.addTempColors(tempColors)
+      this.requestFocus()
+      return this.focus().applyChange(EditorState.push(this.editorState, Modifier.replaceWithFragment(
+        this.contentState, this.selectionState, blockMap
+      ), 'insert-fragment'))
+    } catch (error) {
+      return this
+    }
+
+  }
+
   insertMedias = (medias = []) => {
 
     if (!medias.length) {
@@ -239,9 +269,9 @@ export default class EditorController extends React.Component{
     }
 
     const newEditorState = medias.reduce((editorState, media) => {
-      const { url, name, type, meta } = media
-      const contentStateWithEntity = editorState.getCurrentContent().createEntity(type, 'IMMUTABLE', { url, name, type, meta })
-      const entityKey = contentStateWithEntity.getLastCreatedEntityKey()
+      const { url, name, type, meta, data} = media
+      const contentStateWithEntity = editorState.getCurrentContent().createEntity(type, 'IMMUTABLE', data?data:media)
+      const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
       return AtomicBlockUtils.insertAtomicBlock(editorState, entityKey, ' ')
     }, this.editorState)
 

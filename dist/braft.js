@@ -7,7 +7,7 @@
 		var a = typeof exports === 'object' ? factory(require("react"), require("draft-js"), require("draftjs-utils"), require("draft-convert"), require("react-dom")) : factory(root["react"], root["draft-js"], root["draftjs-utils"], root["draft-convert"], root["react-dom"]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-})(this, function(__WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_4__, __WEBPACK_EXTERNAL_MODULE_10__, __WEBPACK_EXTERNAL_MODULE_32__, __WEBPACK_EXTERNAL_MODULE_91__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_4__, __WEBPACK_EXTERNAL_MODULE_10__, __WEBPACK_EXTERNAL_MODULE_32__, __WEBPACK_EXTERNAL_MODULE_95__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -95,7 +95,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(76);
+__webpack_require__(78);
 
 var _react = __webpack_require__(0);
 
@@ -5357,13 +5357,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(77);
+__webpack_require__(79);
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(91);
+var _reactDom = __webpack_require__(95);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -5771,103 +5771,6 @@ module.exports = invariant;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/
-
-
-/* eslint-disable no-unused-vars */
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-function toObject(val) {
-	if (val === null || val === undefined) {
-		throw new TypeError('Object.assign cannot be called with null or undefined');
-	}
-
-	return Object(val);
-}
-
-function shouldUseNative() {
-	try {
-		if (!Object.assign) {
-			return false;
-		}
-
-		// Detect buggy property enumeration order in older V8 versions.
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
-		test1[5] = 'de';
-		if (Object.getOwnPropertyNames(test1)[0] === '5') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test2 = {};
-		for (var i = 0; i < 10; i++) {
-			test2['_' + String.fromCharCode(i)] = i;
-		}
-		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
-			return test2[n];
-		});
-		if (order2.join('') !== '0123456789') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test3 = {};
-		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
-			test3[letter] = letter;
-		});
-		if (Object.keys(Object.assign({}, test3)).join('') !==
-				'abcdefghijklmnopqrst') {
-			return false;
-		}
-
-		return true;
-	} catch (err) {
-		// We don't expect any of the above to throw, but better to be safe.
-		return false;
-	}
-}
-
-module.exports = shouldUseNative() ? Object.assign : function (target, source) {
-	var from;
-	var to = toObject(target);
-	var symbols;
-
-	for (var s = 1; s < arguments.length; s++) {
-		from = Object(arguments[s]);
-
-		for (var key in from) {
-			if (hasOwnProperty.call(from, key)) {
-				to[key] = from[key];
-			}
-		}
-
-		if (getOwnPropertySymbols) {
-			symbols = getOwnPropertySymbols(from);
-			for (var i = 0; i < symbols.length; i++) {
-				if (propIsEnumerable.call(from, symbols[i])) {
-					to[symbols[i]] = from[symbols[i]];
-				}
-			}
-		}
-	}
-
-	return to;
-};
-
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
@@ -6071,6 +5974,103 @@ var detectColorsFromRaw = exports.detectColorsFromRaw = function detectColorsFro
 };
 
 /***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+
+/* eslint-disable no-unused-vars */
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function toObject(val) {
+	if (val === null || val === undefined) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+function shouldUseNative() {
+	try {
+		if (!Object.assign) {
+			return false;
+		}
+
+		// Detect buggy property enumeration order in older V8 versions.
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+		test1[5] = 'de';
+		if (Object.getOwnPropertyNames(test1)[0] === '5') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test2 = {};
+		for (var i = 0; i < 10; i++) {
+			test2['_' + String.fromCharCode(i)] = i;
+		}
+		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+			return test2[n];
+		});
+		if (order2.join('') !== '0123456789') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test3 = {};
+		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+			test3[letter] = letter;
+		});
+		if (Object.keys(Object.assign({}, test3)).join('') !==
+				'abcdefghijklmnopqrst') {
+			return false;
+		}
+
+		return true;
+	} catch (err) {
+		// We don't expect any of the above to throw, but better to be safe.
+		return false;
+	}
+}
+
+module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+	var from;
+	var to = toObject(target);
+	var symbols;
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = Object(arguments[s]);
+
+		for (var key in from) {
+			if (hasOwnProperty.call(from, key)) {
+				to[key] = from[key];
+			}
+		}
+
+		if (getOwnPropertySymbols) {
+			symbols = getOwnPropertySymbols(from);
+			for (var i = 0; i < symbols.length; i++) {
+				if (propIsEnumerable.call(from, symbols[i])) {
+					to[symbols[i]] = from[symbols[i]];
+				}
+			}
+		}
+	}
+
+	return to;
+};
+
+
+/***/ }),
 /* 10 */
 /***/ (function(module, exports) {
 
@@ -6087,7 +6087,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__webpack_require__(78);
+__webpack_require__(80);
 
 var _react = __webpack_require__(0);
 
@@ -6537,7 +6537,7 @@ module.exports = ContentBlockNode;
 
 
 
-var DraftFeatureFlags = __webpack_require__(62);
+var DraftFeatureFlags = __webpack_require__(64);
 
 module.exports = DraftFeatureFlags;
 
@@ -6644,7 +6644,7 @@ module.exports = generateRandomKey;
 
 
 
-var UserAgent = __webpack_require__(84);
+var UserAgent = __webpack_require__(88);
 
 var invariant = __webpack_require__(7);
 
@@ -6757,7 +6757,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(64);
+__webpack_require__(66);
 
 var _react = __webpack_require__(0);
 
@@ -6972,6 +6972,7 @@ var ControlBar = function (_React$Component) {
                     _this4.extendedModals[item.modal.id].update(_extends({}, item.modal, { language: language }));
                   } else {
                     _this4.extendedModals[item.modal.id] = (0, _Modal.showModal)(_extends({}, item.modal, { language: language }));
+                    item.modal.onCreate && item.modal.onCreate(_this4.extendedModals[item.modal.id]);
                   }
                 }
               }
@@ -7148,7 +7149,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _maps = __webpack_require__(12);
 
-var _colors = __webpack_require__(9);
+var _colors = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7422,7 +7423,7 @@ var htmlToEntity = function htmlToEntity(nodeName, node, createEntity) {
       entityData.link_target = parentNode.target;
     }
 
-    return createEntity('IMAGE', 'IMMUTABLE', entityData);
+    return createEntity('SIDEBARIMAGE', 'IMMUTABLE', entityData);
   } else if (nodeName === 'hr') {
     return createEntity('HR', 'IMMUTABLE', {});
   }
@@ -7618,6 +7619,8 @@ var _draftJs = __webpack_require__(4);
 
 var _draftjsUtils = __webpack_require__(10);
 
+var _colors = __webpack_require__(8);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -7658,6 +7661,10 @@ var EditorController = function (_React$Component) {
     }, _this.selectNextBlock = function (block) {
       var nextBlock = _this.contentState.getBlockAfter(block.getKey());
       return nextBlock ? _this.selectBlock(nextBlock) : _this.applyChange(_this.editorState);
+    }, _this.editItemBlock = function (block, mediaData) {
+      _this.onItemEdit(block, mediaData);
+    }, _this.editHotSpopImageBlock = function (block, mediaData) {
+      _this.onHotSpotImageEdit(block, mediaData);
     }, _this.removeBlock = function (block) {
 
       var nextContentState = void 0,
@@ -7823,6 +7830,23 @@ var EditorController = function (_React$Component) {
       }
     }, _this.replaceText = function (text) {
       return _this.insertText(text);
+    }, _this.insertHTML = function (htmlString) {
+
+      if (!htmlString) {
+        return _this;
+      }
+
+      try {
+        var rawContent = _this.convertHTML(htmlString);
+        var blockMap = rawContent.blockMap;
+
+        var tempColors = (0, _colors.detectColorsFromHTML)(htmlString);
+        _this.addTempColors(tempColors);
+        _this.requestFocus();
+        return _this.focus().applyChange(_draftJs.EditorState.push(_this.editorState, _draftJs.Modifier.replaceWithFragment(_this.contentState, _this.selectionState, blockMap), 'insert-fragment'));
+      } catch (error) {
+        return _this;
+      }
     }, _this.insertMedias = function () {
       var medias = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 
@@ -7839,9 +7863,10 @@ var EditorController = function (_React$Component) {
         var url = media.url,
             name = media.name,
             type = media.type,
-            meta = media.meta;
+            meta = media.meta,
+            data = media.data;
 
-        var contentStateWithEntity = editorState.getCurrentContent().createEntity(type, 'IMMUTABLE', { url: url, name: name, type: type, meta: meta });
+        var contentStateWithEntity = editorState.getCurrentContent().createEntity(type, 'IMMUTABLE', data ? data : media);
         var entityKey = contentStateWithEntity.getLastCreatedEntityKey();
         return _draftJs.AtomicBlockUtils.insertAtomicBlock(editorState, entityKey, ' ');
       }, _this.editorState);
@@ -7939,6 +7964,11 @@ var MediaLibrary = function () {
   }
 
   _createClass(MediaLibrary, [{
+    key: 'getItems',
+    value: function getItems() {
+      return this.items;
+    }
+  }, {
     key: 'getItem',
     value: function getItem(id) {
       return this.items.find(function (item) {
@@ -8072,7 +8102,7 @@ var MediaLibrary = function () {
           return false;
         }
 
-        if (item.type === 'IMAGE') {
+        if (item.type === 'SIDEBARIMAGE') {
           var fileURL = URL.createObjectURL(item.file);
           _this.createThumbnail(item.id, fileURL);
           if (!_this.uploadFn) {
@@ -8095,7 +8125,7 @@ var MediaLibrary = function () {
           libraryId: item.id,
           success: function success(res) {
             var serverId = res.id || item.id;
-            _this.handleUploadSuccess(item.id, res.url, serverId);
+            _this.handleUploadSuccess(item.id, res.url, serverId, res);
           },
           progress: function progress(_progress) {
             _this.setItemState(item.id, {
@@ -8134,16 +8164,16 @@ var MediaLibrary = function () {
     }
   }, {
     key: 'handleUploadSuccess',
-    value: function handleUploadSuccess(id, url, newId) {
+    value: function handleUploadSuccess(id, url, newId, data) {
 
-      this.setItemState(id, {
+      this.setItemState(id, _extends({
         id: newId || id,
         file: null,
         url: url,
         uploadProgress: 1,
         uploading: false,
         selected: false
-      });
+      }, data));
 
       var item = this.getItem(newId || id);
       item.onReadyToInsert && item.onReadyToInsert(item);
@@ -8201,7 +8231,7 @@ var MediaLibrary = function () {
         var fileId = new Date().getTime() + '_' + (0, _base.UniqueIndex)();
 
         this.addItem({
-          type: 'IMAGE',
+          type: 'SIDEBARIMAGE',
           id: fileId,
           file: file,
           name: fileId,
@@ -8277,11 +8307,11 @@ var _immutable = __webpack_require__(2);
 
 var _draftJs = __webpack_require__(4);
 
-var _Image = __webpack_require__(53);
+var _Image = __webpack_require__(54);
 
 var _Image2 = _interopRequireDefault(_Image);
 
-var _Video = __webpack_require__(54);
+var _Video = __webpack_require__(56);
 
 var _Video2 = _interopRequireDefault(_Video);
 
@@ -8289,19 +8319,27 @@ var _Audio = __webpack_require__(51);
 
 var _Audio2 = _interopRequireDefault(_Audio);
 
+var _Item = __webpack_require__(55);
+
+var _Item2 = _interopRequireDefault(_Item);
+
+var _HotSpotImage = __webpack_require__(53);
+
+var _HotSpotImage2 = _interopRequireDefault(_HotSpotImage);
+
 var _HorizontalLine = __webpack_require__(52);
 
 var _HorizontalLine2 = _interopRequireDefault(_HorizontalLine);
 
-var _blockStyles = __webpack_require__(57);
+var _blockStyles = __webpack_require__(59);
 
 var _blockStyles2 = _interopRequireDefault(_blockStyles);
 
-var _inlineStyles = __webpack_require__(58);
+var _inlineStyles = __webpack_require__(60);
 
 var _inlineStyles2 = _interopRequireDefault(_inlineStyles);
 
-var _decorators2 = __webpack_require__(56);
+var _decorators2 = __webpack_require__(58);
 
 var _decorators3 = _interopRequireDefault(_decorators2);
 
@@ -8323,7 +8361,7 @@ var getAtomicBlockComponent = function getAtomicBlockComponent(block, superProps
       block: block, mediaData: mediaData, entityKey: entityKey
     });
 
-    if (mediaType === 'IMAGE') {
+    if (mediaType === 'SIDEBARIMAGE') {
       return _react2.default.createElement(_Image2.default, mediaProps);
     } else if (mediaType === 'AUDIO') {
       return _react2.default.createElement(_Audio2.default, mediaProps);
@@ -8331,6 +8369,10 @@ var getAtomicBlockComponent = function getAtomicBlockComponent(block, superProps
       return _react2.default.createElement(_Video2.default, mediaProps);
     } else if (mediaType === 'HR') {
       return _react2.default.createElement(_HorizontalLine2.default, mediaProps);
+    } else if (mediaType === 'SIDEBARSEARCHITEM') {
+      return _react2.default.createElement(_Item2.default, mediaProps);
+    } else if (mediaType === 'SIDEBARHOTSPACEIMAGE') {
+      return _react2.default.createElement(_HotSpotImage2.default, mediaProps);
     }
 
     return null;
@@ -8380,7 +8422,7 @@ var decorators = exports.decorators = _decorators3.default;
 
 
 
-var _assign = __webpack_require__(8);
+var _assign = __webpack_require__(9);
 
 var _extends = _assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -8390,7 +8432,7 @@ var ContentBlockNode = __webpack_require__(14);
 var DraftFeatureFlags = __webpack_require__(15);
 var Immutable = __webpack_require__(2);
 
-var convertFromHTMLtoContentBlocks = __webpack_require__(63);
+var convertFromHTMLtoContentBlocks = __webpack_require__(65);
 var generateRandomKey = __webpack_require__(17);
 var getSafeBodyFromHTML = __webpack_require__(18);
 var sanitizeDraftText = __webpack_require__(19);
@@ -8468,7 +8510,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__webpack_require__(65);
+__webpack_require__(67);
 
 var _react = __webpack_require__(0);
 
@@ -8537,7 +8579,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__webpack_require__(66);
+__webpack_require__(68);
 
 var _react = __webpack_require__(0);
 
@@ -8621,7 +8663,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__webpack_require__(67);
+__webpack_require__(69);
 
 var _react = __webpack_require__(0);
 
@@ -8698,7 +8740,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__webpack_require__(68);
+__webpack_require__(70);
 
 var _react = __webpack_require__(0);
 
@@ -8769,7 +8811,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__webpack_require__(69);
+__webpack_require__(71);
 
 var _react = __webpack_require__(0);
 
@@ -8848,7 +8890,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(70);
+__webpack_require__(72);
 
 var _react = __webpack_require__(0);
 
@@ -9051,7 +9093,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(71);
+__webpack_require__(73);
 
 var _react = __webpack_require__(0);
 
@@ -9103,7 +9145,7 @@ var MediaPicker = function (_React$Component) {
       confirmable: false,
       external: {
         url: '',
-        type: 'IMAGE'
+        type: 'SIDEBARIMAGE'
       },
       files: []
     }, _this.dragCounter = 0, _this.mediaFileAccept = [_this.props.media.image ? imageMediaType : null, _this.props.media.video ? videoMediaType : null, _this.props.media.audio ? audioMediaType : null].filter(function (item) {
@@ -9212,7 +9254,7 @@ var MediaPicker = function (_React$Component) {
             };
 
             if (files[index].type.indexOf('image/') === 0 && _this.props.media.image) {
-              data.type = 'IMAGE';
+              data.type = 'SIDEBARIMAGE';
               _this.mediaLibrary.addItems([data]);
             } else if (files[index].type.indexOf('video/') === 0 && _this.props.media.video) {
               data.type = 'VIDEO';
@@ -9251,7 +9293,7 @@ var MediaPicker = function (_React$Component) {
         url = url.split('|');
         var name = url.length > 1 ? url[0] : _this.props.language.mediaPicker.unnamedItem;
         url = url.length > 1 ? url[1] : url[0];
-        var thumbnail = type === 'IMAGE' ? url : null;
+        var thumbnail = type === 'SIDEBARIMAGE' ? url : null;
         _this.mediaLibrary.addItems([{
           thumbnail: thumbnail, url: url, name: name, type: type,
           id: new Date().getTime() + '_' + (0, _base.UniqueIndex)(),
@@ -9263,7 +9305,7 @@ var MediaPicker = function (_React$Component) {
           showExternalForm: false,
           external: {
             url: '',
-            type: 'IMAGE'
+            type: 'SIDEBARIMAGE'
           }
         });
       }
@@ -9300,7 +9342,7 @@ var MediaPicker = function (_React$Component) {
       this.setState({
         external: {
           url: '',
-          type: media.externalMedias.image ? 'IMAGE' : media.externalMedias.audio ? 'AUDIO' : media.externalMedias.video ? 'VIDEO' : ''
+          type: media.externalMedias.image ? 'SIDEBARIMAGE' : media.externalMedias.audio ? 'AUDIO' : media.externalMedias.video ? 'VIDEO' : ''
         }
       });
 
@@ -9326,7 +9368,7 @@ var MediaPicker = function (_React$Component) {
       this.setState({
         external: {
           url: '',
-          type: media.externalMedias.image ? 'IMAGE' : media.externalMedias.audio ? 'AUDIO' : media.externalMedias.video ? 'VIDEO' : ''
+          type: media.externalMedias.image ? 'SIDEBARIMAGE' : media.externalMedias.audio ? 'AUDIO' : media.externalMedias.video ? 'VIDEO' : ''
         }
       });
     }
@@ -9467,7 +9509,7 @@ var MediaPicker = function (_React$Component) {
                   { 'data-type': external.type, className: 'braft-media-switch-external-type' },
                   media.externalMedias.image ? _react2.default.createElement(
                     'button',
-                    { type: 'button', onClick: this.switchExternalType, 'data-type': 'IMAGE' },
+                    { type: 'button', onClick: this.switchExternalType, 'data-type': 'SIDEBARIMAGE' },
                     language.media.image
                   ) : null,
                   media.externalMedias.audio ? _react2.default.createElement(
@@ -9516,7 +9558,7 @@ var MediaPicker = function (_React$Component) {
           ) : '';
 
           switch (file.type) {
-            case 'IMAGE':
+            case 'SIDEBARIMAGE':
               previewerComponents = _react2.default.createElement(
                 'div',
                 { className: 'braft-media-image' },
@@ -9703,7 +9745,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(72);
+__webpack_require__(74);
 
 var _react = __webpack_require__(0);
 
@@ -9874,7 +9916,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__webpack_require__(73);
+__webpack_require__(75);
 
 var _react = __webpack_require__(0);
 
@@ -9951,7 +9993,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__webpack_require__(74);
+__webpack_require__(76);
 
 var _react = __webpack_require__(0);
 
@@ -10028,7 +10070,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__webpack_require__(75);
+__webpack_require__(77);
 
 var _react = __webpack_require__(0);
 
@@ -10361,7 +10403,7 @@ var _MediaLibrary = __webpack_require__(26);
 
 var _MediaLibrary2 = _interopRequireDefault(_MediaLibrary);
 
-var _colors = __webpack_require__(9);
+var _colors = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10563,7 +10605,9 @@ BraftEditor.defaultProps = _extends({}, _options2.default, {
   onRawChange: null,
   onFocus: null,
   onBlur: null,
-  onSave: null
+  onSave: null,
+  onItemEdit: null,
+  onHotSpotImageEdit: null
 });
 
 var _initialiseProps = function _initialiseProps() {
@@ -10630,6 +10674,12 @@ var _initialiseProps = function _initialiseProps() {
 
   this.getMediaLibraryInstance = function () {
     return _this3.mediaLibrary;
+  };
+
+  this.convertHTML = function (htmlString) {
+    var fontFamilies = _this3.props.fontFamilies;
+
+    return (0, _draftConvert.convertFromHTML)((0, _convert.getFromHTMLConfig)({ fontFamilies: fontFamilies }))((0, _convert.convertCodeBlock)(htmlString));
   };
 
   this.setContent = function (content, format) {
@@ -10729,6 +10779,14 @@ var _initialiseProps = function _initialiseProps() {
   this.onBlur = function () {
     _this3.isFocused = false;
     _this3.props.onBlur && _this3.props.onBlur();
+  };
+
+  this.onItemEdit = function (block, data) {
+    _this3.props.onItemEdit && _this3.props.onItemEdit(block, data);
+  };
+
+  this.onHotSpotImageEdit = function (block, data) {
+    _this3.props.onHotSpotImageEdit && _this3.props.onHotSpotImageEdit(block, data);
   };
 
   this.handleReturn = function (event) {
@@ -11109,7 +11167,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(79);
+__webpack_require__(81);
 
 var _react = __webpack_require__(0);
 
@@ -11255,7 +11313,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(80);
+__webpack_require__(82);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11322,7 +11380,132 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(81);
+__webpack_require__(83);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * code by spencerZ
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 2018-03-28 热点图模块
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+var HotSpotImage = function (_Component) {
+  _inherits(HotSpotImage, _Component);
+
+  function HotSpotImage() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, HotSpotImage);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = HotSpotImage.__proto__ || Object.getPrototypeOf(HotSpotImage)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      showRemove: false
+    }, _this.showRemoveBtn = function () {
+      _this.setState({ showRemove: true });
+    }, _this.hideRemoveBtn = function () {
+      _this.setState({ showRemove: false });
+    }, _this.removeItemBlock = function () {
+      _this.props.editor.removeBlock(_this.props.block);
+    }, _this.showEditModal = function () {
+      _this.props.editor.editHotSpopImageBlock(_this.props.block, _this.props.mediaData);
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(HotSpotImage, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          mediaData = _props.mediaData,
+          editor = _props.editor;
+
+      var blockData = this.props.block.getData();
+      var height = mediaData.picHeight * 200 / mediaData.picWidth;
+      var width = 200;
+      var hotSpaces = mediaData.hotSpaces;
+
+      hotSpaces = hotSpaces.map(function (hotspot, index) {
+        var x = width * hotspot.x / 100;
+        var y = height * hotspot.y / 100;
+        var spotWidth = width * hotspot.width / 100;
+        var spotHeight = height * hotspot.height / 100;
+        return _react2.default.createElement('div', { key: index, className: 'braft-editor-hotspot-area-wrap', style: { top: y, left: x, width: spotWidth, height: spotHeight } });
+      });
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'braft-editor-custom-block', onMouseEnter: this.showRemoveBtn, onMouseLeave: this.hideRemoveBtn },
+        _react2.default.createElement(
+          'div',
+          { className: 'braft-editor-hotspot-image-wrap', style: { width: 200, height: height } },
+          _react2.default.createElement(
+            'div',
+            { className: 'braft-editor-hotspot-image-cover', style: { width: 200, height: height } },
+            _react2.default.createElement(
+              'div',
+              { className: 'ice-img sharp', style: { width: 200, height: height } },
+              _react2.default.createElement('img', { src: mediaData.url, style: { width: 200, height: height } })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'braft-editor-hotspot-image-trigger', onClick: this.showEditModal },
+              '\u7F16\u8F91'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'braft-editor-hotspot-list', style: { width: 200, height: height } },
+            _react2.default.createElement(
+              'div',
+              { className: 'braft-ediotr-hotspot-area', style: { width: 200, height: height } },
+              hotSpaces
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'span',
+          { className: 'braft-editor-block-remove', style: { display: this.state.showRemove ? 'block' : 'none' } },
+          _react2.default.createElement(
+            'a',
+            { href: 'javascript:;', onClick: this.removeItemBlock },
+            '\xD7'
+          )
+        )
+      );
+    }
+  }]);
+
+  return HotSpotImage;
+}(_react.Component);
+
+exports.default = HotSpotImage;
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+__webpack_require__(84);
 
 var _react = __webpack_require__(0);
 
@@ -11361,8 +11544,24 @@ var Image = function (_React$Component) {
       sizeEditorVisible: false,
       tempLink: null,
       tempWidth: null,
-      tempHeight: null
+      tempHeight: null,
+      showRemove: false
+    }, _this.showRemoveBtn = function () {
+      if (!_this.state.showRemove) {
+        _this.setState({
+          showRemove: true
+        }, function () {
+          _this.props.editor.setEditorProp('readOnly', true);
+        });
+      }
+    }, _this.hideRemoveBtn = function () {
+      _this.setState({
+        showRemove: false
+      }, function () {
+        _this.props.editor.setEditorProp('readOnly', false);
+      });
     }, _this.removeImage = function (e) {
+      console.log('removeImage==============');
       _this.props.editor.removeBlock(_this.props.block);
       _this.props.editor.setEditorProp('readOnly', false);
     }, _this.toggleLinkEditor = function () {
@@ -11474,8 +11673,6 @@ var Image = function (_React$Component) {
   _createClass(Image, [{
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       var _props = this.props,
           mediaData = _props.mediaData,
           language = _props.language,
@@ -11516,121 +11713,76 @@ var Image = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'braft-media-embeder' },
+        { className: 'braft-editor-custom-block', onMouseEnter: this.showRemoveBtn, onMouseLeave: this.hideRemoveBtn },
+        _react2.default.createElement('img', { src: url, width: width, style: { width: '220px', height: 'auto' } }),
         _react2.default.createElement(
-          'div',
-          {
-            style: imageStyles,
-            className: 'braft-embed-image',
-            onMouseOver: this.showToolbar,
-            onMouseLeave: this.hideToolbar
-          },
-          toolbarVisible && _react2.default.createElement(
-            'div',
-            {
-              style: { marginLeft: toolbarOffset },
-              ref: function ref(instance) {
-                return _this2.toolbarElement = instance;
-              },
-              'data-float': float,
-              'data-alignment': alignment,
-              className: 'braft-embed-image-toolbar'
-            },
-            linkEditorVisible ? _react2.default.createElement(
-              'div',
-              { onClick: this.preventDefault, className: 'braft-embed-image-link-editor' },
-              _react2.default.createElement(
-                'div',
-                { className: 'editor-input-group' },
-                _react2.default.createElement('input', { type: 'text', placeholder: language.linkEditor.inputWithEnterPlaceHolder, onKeyDown: this.handleLinkInputKeyDown, onChange: this.setImageLink, defaultValue: link }),
-                _react2.default.createElement(
-                  'button',
-                  { type: 'button', onClick: this.confirmImageLink },
-                  language.base.confirm
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'switch-group' },
-                _react2.default.createElement(_Switch2.default, {
-                  active: link_target === '_blank',
-                  onClick: function onClick() {
-                    return _this2.setImageLinkTarget(link_target);
-                  }
-                }),
-                _react2.default.createElement(
-                  'label',
-                  null,
-                  language.linkEditor.openInNewWindow
-                )
-              )
-            ) : null,
-            sizeEditorVisible ? _react2.default.createElement(
-              'div',
-              { onClick: this.preventDefault, className: 'braft-embed-image-size-editor' },
-              _react2.default.createElement(
-                'div',
-                { className: 'editor-input-group' },
-                _react2.default.createElement('input', { type: 'text', placeholder: language.base.width, onKeyDown: this.handleSizeInputKeyDown, onChange: this.setImageWidth, defaultValue: width }),
-                _react2.default.createElement('input', { type: 'text', placeholder: language.base.height, onKeyDown: this.handleSizeInputKeyDown, onChange: this.setImageHeight, defaultValue: height }),
-                _react2.default.createElement(
-                  'button',
-                  { type: 'button', onClick: this.confirmImageSize },
-                  language.base.confirm
-                )
-              )
-            ) : null,
-            imageControls.floatLeft ? _react2.default.createElement(
-              'a',
-              { 'data-float': 'left', onClick: this.setImageFloat },
-              '\uE91E'
-            ) : null,
-            imageControls.floatRight ? _react2.default.createElement(
-              'a',
-              { 'data-float': 'right', onClick: this.setImageFloat },
-              '\uE914'
-            ) : null,
-            imageControls.alignLeft ? _react2.default.createElement(
-              'a',
-              { 'data-alignment': 'left', onClick: this.setImageAlignment },
-              '\uE027'
-            ) : null,
-            imageControls.alignCenter ? _react2.default.createElement(
-              'a',
-              { 'data-alignment': 'center', onClick: this.setImageAlignment },
-              '\uE028'
-            ) : null,
-            imageControls.alignRight ? _react2.default.createElement(
-              'a',
-              { 'data-alignment': 'right', onClick: this.setImageAlignment },
-              '\uE029'
-            ) : null,
-            imageControls.size ? _react2.default.createElement(
-              'a',
-              { onClick: this.toggleSizeEditor },
-              '\uE3C2'
-            ) : null,
-            imageControls.link ? _react2.default.createElement(
-              'a',
-              { className: link ? 'active' : '', onClick: this.toggleLinkEditor },
-              '\uE91A'
-            ) : null,
-            imageControls.remove ? _react2.default.createElement(
-              'a',
-              { onClick: this.removeImage },
-              '\uE9AC'
-            ) : null,
-            _react2.default.createElement('i', { style: { marginLeft: toolbarOffset * -1 }, className: 'braft-embed-image-toolbar-arrow' })
-          ),
-          _react2.default.createElement('img', {
-            ref: function ref(instance) {
-              return _this2.imageElement = instance;
-            },
-            src: url, style: { width: width, height: height }, width: width, height: height
-          })
-        ),
-        clearFix && _react2.default.createElement('div', { className: 'clearfix', style: { clear: 'both', height: 0, lineHeight: 0, float: 'none' } })
-      );
+          'span',
+          { className: 'braft-editor-block-remove', style: { display: this.state.showRemove ? 'block' : 'none' } },
+          _react2.default.createElement(
+            'a',
+            { href: 'javascript:;', onClick: this.removeImage },
+            '\xD7'
+          )
+        )
+      )
+      // <div className="braft-media-embeder">
+      //   <div
+      //     style={imageStyles}
+      //     className="braft-embed-image"
+      //     onMouseOver={this.showToolbar}
+      //     onMouseLeave={this.hideToolbar}
+      //   >
+      //     {toolbarVisible && (
+      //     <div
+      //       style={{marginLeft: toolbarOffset}}
+      //       ref={instance => this.toolbarElement = instance}
+      //       data-float={float}
+      //       data-alignment={alignment}
+      //       className="braft-embed-image-toolbar"
+      //     >
+      //       {linkEditorVisible ? (
+      //         <div onClick={this.preventDefault} className="braft-embed-image-link-editor">
+      //           <div className="editor-input-group">
+      //             <input type="text" placeholder={language.linkEditor.inputWithEnterPlaceHolder} onKeyDown={this.handleLinkInputKeyDown} onChange={this.setImageLink} defaultValue={link}/>
+      //             <button type="button" onClick={this.confirmImageLink}>{language.base.confirm}</button>
+      //           </div>
+      //           <div className="switch-group">
+      //             <Switch
+      //               active={link_target === '_blank'}
+      //               onClick={() => this.setImageLinkTarget(link_target)}
+      //             />
+      //             <label>{language.linkEditor.openInNewWindow}</label>
+      //           </div>
+      //         </div>
+      //       ) : null}
+      //       {sizeEditorVisible ? (
+      //         <div onClick={this.preventDefault} className="braft-embed-image-size-editor">
+      //           <div className="editor-input-group">
+      //             <input type="text" placeholder={language.base.width} onKeyDown={this.handleSizeInputKeyDown} onChange={this.setImageWidth} defaultValue={width}/>
+      //             <input type="text" placeholder={language.base.height} onKeyDown={this.handleSizeInputKeyDown} onChange={this.setImageHeight} defaultValue={height}/>
+      //             <button type="button" onClick={this.confirmImageSize}>{language.base.confirm}</button>
+      //           </div>
+      //         </div>
+      //       ) : null}
+      //       {imageControls.floatLeft ? <a data-float="left" onClick={this.setImageFloat}>&#xe91e;</a> : null}
+      //       {imageControls.floatRight ? <a data-float="right" onClick={this.setImageFloat}>&#xe914;</a> : null}
+      //       {imageControls.alignLeft ? <a data-alignment="left" onClick={this.setImageAlignment}>&#xe027;</a> : null}
+      //       {imageControls.alignCenter ? <a data-alignment="center" onClick={this.setImageAlignment}>&#xe028;</a> : null}
+      //       {imageControls.alignRight ? <a data-alignment="right" onClick={this.setImageAlignment}>&#xe029;</a> : null}
+      //       {imageControls.size ? <a onClick={this.toggleSizeEditor}>&#xe3c2;</a> : null}
+      //       {imageControls.link ? <a className={link ? 'active' : ''} onClick={this.toggleLinkEditor}>&#xe91a;</a> : null}
+      //       {imageControls.remove ? <a onClick={this.removeImage}>&#xe9ac;</a> : null}
+      //       <i style={{marginLeft: toolbarOffset * -1}} className="braft-embed-image-toolbar-arrow"></i>
+      //     </div>
+      //     )}
+      //     <img
+      //       ref={instance => this.imageElement = instance}
+      //       src={url} style={{width, height}} width={width} height={height}
+      //     />
+      //   </div>
+      //   {clearFix && <div className="clearfix" style={{clear:'both',height:0,lineHeight:0,float:'none'}}></div>}
+      // </div>
+      ;
     }
   }, {
     key: 'calcToolbarOffset',
@@ -11676,7 +11828,7 @@ var Image = function (_React$Component) {
 exports.default = Image;
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11688,7 +11840,157 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(82);
+__webpack_require__(85);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * code by spencerZ
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 2018-03-28 宝贝模块
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+var Item = function (_Component) {
+  _inherits(Item, _Component);
+
+  function Item() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Item);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Item.__proto__ || Object.getPrototypeOf(Item)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      showRemove: false
+    }, _this.showRemoveBtn = function () {
+      _this.setState({ showRemove: true });
+    }, _this.hideRemoveBtn = function () {
+      _this.setState({ showRemove: false });
+    }, _this.removeItemBlock = function () {
+      _this.props.editor.removeBlock(_this.props.block);
+    }, _this.showItemModal = function () {
+      _this.props.editor.editItemBlock(_this.props.block, _this.props.mediaData);
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Item, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          mediaData = _props.mediaData,
+          editor = _props.editor;
+
+      var blockData = this.props.block.getData();
+
+      if (!editor.props.disabled) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'braft-editor-custom-block', onMouseEnter: this.showRemoveBtn, onMouseLeave: this.hideRemoveBtn },
+          _react2.default.createElement(
+            'div',
+            { className: 'braft-editor-search-item-wrap' },
+            _react2.default.createElement(
+              'div',
+              { className: 'braft-editor-search-item-cover' },
+              _react2.default.createElement(
+                'div',
+                { className: 'ice-img sharp' },
+                _react2.default.createElement('img', { src: mediaData.coverUrl })
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'braft-editor-search-item-trigger', onClick: this.showItemModal },
+                '\u70B9\u51FB\u5B8C\u5584\u8D44\u6599'
+              )
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'braft-editor-search-item-title' },
+              mediaData.title
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'braft-editor-search-item-price' },
+              mediaData.price
+            )
+          ),
+          _react2.default.createElement(
+            'span',
+            { className: 'braft-editor-block-remove', style: { display: this.state.showRemove ? 'block' : 'none' } },
+            _react2.default.createElement(
+              'a',
+              { href: 'javascript:;', onClick: this.removeItemBlock },
+              '\xD7'
+            )
+          )
+        );
+      } else {
+        return _react2.default.createElement(
+          'div',
+          { className: 'braft-editor-custom-block' },
+          _react2.default.createElement(
+            'div',
+            { className: 'braft-editor-search-item-wrap' },
+            _react2.default.createElement(
+              'div',
+              { className: 'braft-editor-search-item-cover' },
+              _react2.default.createElement(
+                'div',
+                { className: 'ice-img sharp' },
+                _react2.default.createElement('img', { src: mediaData.coverUrl })
+              )
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'braft-editor-search-item-title' },
+              mediaData.title
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'braft-editor-search-item-price' },
+              mediaData.price
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'braft-editor-search-item-price' },
+              mediaData.resourceUrl
+            )
+          )
+        );
+      }
+    }
+  }]);
+
+  return Item;
+}(_react.Component);
+
+exports.default = Item;
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+__webpack_require__(86);
 
 var _react = __webpack_require__(0);
 
@@ -11816,7 +12118,7 @@ var Video = function (_React$Component) {
 exports.default = Video;
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11866,7 +12168,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11876,7 +12178,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Link = __webpack_require__(55);
+var _Link = __webpack_require__(57);
 
 var _Link2 = _interopRequireDefault(_Link);
 
@@ -11885,7 +12187,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = [_Link2.default];
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11914,7 +12216,7 @@ function blockStyleFn(block) {
 }
 
 /***/ }),
-/* 58 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11978,7 +12280,7 @@ exports.default = function (props) {
 };
 
 /***/ }),
-/* 59 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12054,13 +12356,13 @@ var DefaultDraftBlockRenderMap = Map({
 module.exports = DefaultDraftBlockRenderMap;
 
 /***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _assign = __webpack_require__(8);
+var _assign = __webpack_require__(9);
 
 var _extends = _assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -12077,7 +12379,7 @@ var _extends = _assign || function (target) { for (var i = 1; i < arguments.leng
  * 
  */
 
-var DraftEntityInstance = __webpack_require__(61);
+var DraftEntityInstance = __webpack_require__(63);
 var Immutable = __webpack_require__(2);
 
 var invariant = __webpack_require__(7);
@@ -12254,7 +12556,7 @@ var DraftEntity = {
 module.exports = DraftEntity;
 
 /***/ }),
-/* 61 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12330,7 +12632,7 @@ var DraftEntityInstance = function (_DraftEntityInstanceR) {
 module.exports = DraftEntityInstance;
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12359,7 +12661,7 @@ var DraftFeatureFlags = {
 module.exports = DraftFeatureFlags;
 
 /***/ }),
-/* 63 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12381,22 +12683,22 @@ module.exports = DraftFeatureFlags;
 var _extends = _assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _knownListItemDepthCl,
-    _assign = __webpack_require__(8);
+    _assign = __webpack_require__(9);
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var CharacterMetadata = __webpack_require__(6);
 var ContentBlock = __webpack_require__(13);
 var ContentBlockNode = __webpack_require__(14);
-var DefaultDraftBlockRenderMap = __webpack_require__(59);
-var DraftEntity = __webpack_require__(60);
+var DefaultDraftBlockRenderMap = __webpack_require__(61);
+var DraftEntity = __webpack_require__(62);
 var DraftFeatureFlags = __webpack_require__(15);
 var Immutable = __webpack_require__(2);
 
 var _require = __webpack_require__(2),
     Set = _require.Set;
 
-var URI = __webpack_require__(83);
+var URI = __webpack_require__(87);
 
 var cx = __webpack_require__(20);
 var generateRandomKey = __webpack_require__(17);
@@ -13017,18 +13319,6 @@ var convertFromHTMLtoContentBlocks = function convertFromHTMLtoContentBlocks(htm
 module.exports = convertFromHTMLtoContentBlocks;
 
 /***/ }),
-/* 64 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 66 */
 /***/ (function(module, exports) {
 
@@ -13132,6 +13422,30 @@ module.exports = convertFromHTMLtoContentBlocks;
 
 /***/ }),
 /* 83 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13165,7 +13479,7 @@ var URI = function () {
 module.exports = URI;
 
 /***/ }),
-/* 84 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13179,11 +13493,11 @@ module.exports = URI;
 
 
 
-var UserAgentData = __webpack_require__(85);
-var VersionRange = __webpack_require__(86);
+var UserAgentData = __webpack_require__(89);
+var VersionRange = __webpack_require__(90);
 
-var mapObject = __webpack_require__(87);
-var memoizeStringOnly = __webpack_require__(88);
+var mapObject = __webpack_require__(91);
+var memoizeStringOnly = __webpack_require__(92);
 
 /**
  * Checks to see whether `name` and `version` satisfy `query`.
@@ -13410,7 +13724,7 @@ var UserAgent = {
 module.exports = mapObject(UserAgent, memoizeStringOnly);
 
 /***/ }),
-/* 85 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13435,7 +13749,7 @@ module.exports = mapObject(UserAgent, memoizeStringOnly);
 
 
 
-var UAParser = __webpack_require__(89);
+var UAParser = __webpack_require__(93);
 
 var UNKNOWN = 'Unknown';
 
@@ -13496,7 +13810,7 @@ var uaData = {
 module.exports = uaData;
 
 /***/ }),
-/* 86 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13882,7 +14196,7 @@ var VersionRange = {
 module.exports = VersionRange;
 
 /***/ }),
-/* 87 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13936,7 +14250,7 @@ function mapObject(object, callback, context) {
 module.exports = mapObject;
 
 /***/ }),
-/* 88 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13969,7 +14283,7 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
-/* 89 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -15012,7 +15326,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
         exports.UAParser = UAParser;
     } else {
         // requirejs env (optional)
-        if ("function" === FUNC_TYPE && __webpack_require__(90)) {
+        if ("function" === FUNC_TYPE && __webpack_require__(94)) {
             !(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
                 return UAParser;
             }.call(exports, __webpack_require__, exports, module),
@@ -15048,7 +15362,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 90 */
+/* 94 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -15057,10 +15371,10 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 91 */
+/* 95 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_91__;
+module.exports = __WEBPACK_EXTERNAL_MODULE_95__;
 
 /***/ })
 /******/ ]);

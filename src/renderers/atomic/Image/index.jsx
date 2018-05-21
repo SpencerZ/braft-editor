@@ -11,7 +11,25 @@ export default class Image extends React.Component {
     sizeEditorVisible: false,
     tempLink: null,
     tempWidth: null,
-    tempHeight: null
+    tempHeight: null,
+    showRemove: false
+  }
+
+  showRemoveBtn = () => {
+    if (!this.state.showRemove) {
+      this.setState({
+        showRemove: true
+      }, () => {
+        this.props.editor.setEditorProp('readOnly', true)
+      })
+    }
+  }
+  hideRemoveBtn = () => {
+    this.setState({
+      showRemove: false
+    }, () => {
+      this.props.editor.setEditorProp('readOnly', false)
+    })
   }
 
   render () {
@@ -42,63 +60,69 @@ export default class Image extends React.Component {
     }
 
     return (
-      <div className="braft-media-embeder">
-        <div
-          style={imageStyles}
-          className="braft-embed-image"
-          onMouseOver={this.showToolbar}
-          onMouseLeave={this.hideToolbar}
-        >
-          {toolbarVisible && (
-          <div
-            style={{marginLeft: toolbarOffset}}
-            ref={instance => this.toolbarElement = instance}
-            data-float={float}
-            data-alignment={alignment}
-            className="braft-embed-image-toolbar"
-          >
-            {linkEditorVisible ? (
-              <div onClick={this.preventDefault} className="braft-embed-image-link-editor">
-                <div className="editor-input-group">
-                  <input type="text" placeholder={language.linkEditor.inputWithEnterPlaceHolder} onKeyDown={this.handleLinkInputKeyDown} onChange={this.setImageLink} defaultValue={link}/>
-                  <button type="button" onClick={this.confirmImageLink}>{language.base.confirm}</button>
-                </div>
-                <div className="switch-group">
-                  <Switch
-                    active={link_target === '_blank'}
-                    onClick={() => this.setImageLinkTarget(link_target)}
-                  />
-                  <label>{language.linkEditor.openInNewWindow}</label>
-                </div>
-              </div>
-            ) : null}
-            {sizeEditorVisible ? (
-              <div onClick={this.preventDefault} className="braft-embed-image-size-editor">
-                <div className="editor-input-group">
-                  <input type="text" placeholder={language.base.width} onKeyDown={this.handleSizeInputKeyDown} onChange={this.setImageWidth} defaultValue={width}/>
-                  <input type="text" placeholder={language.base.height} onKeyDown={this.handleSizeInputKeyDown} onChange={this.setImageHeight} defaultValue={height}/>
-                  <button type="button" onClick={this.confirmImageSize}>{language.base.confirm}</button>
-                </div>
-              </div>
-            ) : null}
-            {imageControls.floatLeft ? <a data-float="left" onClick={this.setImageFloat}>&#xe91e;</a> : null}
-            {imageControls.floatRight ? <a data-float="right" onClick={this.setImageFloat}>&#xe914;</a> : null}
-            {imageControls.alignLeft ? <a data-alignment="left" onClick={this.setImageAlignment}>&#xe027;</a> : null}
-            {imageControls.alignCenter ? <a data-alignment="center" onClick={this.setImageAlignment}>&#xe028;</a> : null}
-            {imageControls.alignRight ? <a data-alignment="right" onClick={this.setImageAlignment}>&#xe029;</a> : null}
-            {imageControls.size ? <a onClick={this.toggleSizeEditor}>&#xe3c2;</a> : null}
-            {imageControls.link ? <a className={link ? 'active' : ''} onClick={this.toggleLinkEditor}>&#xe91a;</a> : null}
-            {imageControls.remove ? <a onClick={this.removeImage}>&#xe9ac;</a> : null}
-            <i style={{marginLeft: toolbarOffset * -1}} className="braft-embed-image-toolbar-arrow"></i>
-          </div>
-          )}
-          <img
-            ref={instance => this.imageElement = instance}
-            src={url} style={{width, height}} width={width} height={height}
-          />
-        </div>
-        {clearFix && <div className="clearfix" style={{clear:'both',height:0,lineHeight:0,float:'none'}}></div>}
+      <div className="braft-editor-custom-block" onMouseEnter={this.showRemoveBtn} onMouseLeave={this.hideRemoveBtn}>
+        <img src={url} width={width} style={{width: '220px', height: 'auto', border: '1px solid #ccc'}}/>
+        <span className="braft-editor-block-remove" style={{display: this.state.showRemove ? 'block' : 'none' }}>
+          <a href="javascript:;" onClick={this.removeImage}>×</a>
+        </span>
       </div>
+      // <div className="braft-media-embeder">
+      //   <div
+      //     style={imageStyles}
+      //     className="braft-embed-image"
+      //     onMouseOver={this.showToolbar}
+      //     onMouseLeave={this.hideToolbar}
+      //   >
+      //     {toolbarVisible && (
+      //     <div
+      //       style={{marginLeft: toolbarOffset}}
+      //       ref={instance => this.toolbarElement = instance}
+      //       data-float={float}
+      //       data-alignment={alignment}
+      //       className="braft-embed-image-toolbar"
+      //     >
+      //       {linkEditorVisible ? (
+      //         <div onClick={this.preventDefault} className="braft-embed-image-link-editor">
+      //           <div className="editor-input-group">
+      //             <input type="text" placeholder={language.linkEditor.inputWithEnterPlaceHolder} onKeyDown={this.handleLinkInputKeyDown} onChange={this.setImageLink} defaultValue={link}/>
+      //             <button type="button" onClick={this.confirmImageLink}>{language.base.confirm}</button>
+      //           </div>
+      //           <div className="switch-group">
+      //             <Switch
+      //               active={link_target === '_blank'}
+      //               onClick={() => this.setImageLinkTarget(link_target)}
+      //             />
+      //             <label>{language.linkEditor.openInNewWindow}</label>
+      //           </div>
+      //         </div>
+      //       ) : null}
+      //       {sizeEditorVisible ? (
+      //         <div onClick={this.preventDefault} className="braft-embed-image-size-editor">
+      //           <div className="editor-input-group">
+      //             <input type="text" placeholder={language.base.width} onKeyDown={this.handleSizeInputKeyDown} onChange={this.setImageWidth} defaultValue={width}/>
+      //             <input type="text" placeholder={language.base.height} onKeyDown={this.handleSizeInputKeyDown} onChange={this.setImageHeight} defaultValue={height}/>
+      //             <button type="button" onClick={this.confirmImageSize}>{language.base.confirm}</button>
+      //           </div>
+      //         </div>
+      //       ) : null}
+      //       {imageControls.floatLeft ? <a data-float="left" onClick={this.setImageFloat}>&#xe91e;</a> : null}
+      //       {imageControls.floatRight ? <a data-float="right" onClick={this.setImageFloat}>&#xe914;</a> : null}
+      //       {imageControls.alignLeft ? <a data-alignment="left" onClick={this.setImageAlignment}>&#xe027;</a> : null}
+      //       {imageControls.alignCenter ? <a data-alignment="center" onClick={this.setImageAlignment}>&#xe028;</a> : null}
+      //       {imageControls.alignRight ? <a data-alignment="right" onClick={this.setImageAlignment}>&#xe029;</a> : null}
+      //       {imageControls.size ? <a onClick={this.toggleSizeEditor}>&#xe3c2;</a> : null}
+      //       {imageControls.link ? <a className={link ? 'active' : ''} onClick={this.toggleLinkEditor}>&#xe91a;</a> : null}
+      //       {imageControls.remove ? <a onClick={this.removeImage}>&#xe9ac;</a> : null}
+      //       <i style={{marginLeft: toolbarOffset * -1}} className="braft-embed-image-toolbar-arrow"></i>
+      //     </div>
+      //     )}
+      //     <img
+      //       ref={instance => this.imageElement = instance}
+      //       src={url} style={{width, height}} width={width} height={height}
+      //     />
+      //   </div>
+      //   {clearFix && <div className="clearfix" style={{clear:'both',height:0,lineHeight:0,float:'none'}}></div>}
+      // </div>
     )
 
   }
@@ -132,6 +156,7 @@ export default class Image extends React.Component {
   }
 
   removeImage = (e) => {
+    console.log('removeImage==============');
     this.props.editor.removeBlock(this.props.block)
     this.props.editor.setEditorProp('readOnly', false)
   }

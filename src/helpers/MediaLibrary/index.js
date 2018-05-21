@@ -6,6 +6,10 @@ export default class MediaLibrary {
     this.items = []
   }
 
+  getItems () {
+    return this.items;
+  }
+
   getItem (id) {
     return this.items.find(item => item.id === id)
   }
@@ -97,7 +101,7 @@ export default class MediaLibrary {
         return false
       }
 
-      if (item.type === 'IMAGE') {
+      if (item.type === 'SIDEBARIMAGE') {
         let fileURL = URL.createObjectURL(item.file)
         this.createThumbnail(item.id, fileURL)
         if (!this.uploadFn) {
@@ -120,7 +124,7 @@ export default class MediaLibrary {
         libraryId: item.id,
         success: (res) => {
           const serverId = res.id || item.id
-          this.handleUploadSuccess(item.id, res.url, serverId)
+          this.handleUploadSuccess(item.id, res.url, serverId, res)
         },
         progress: (progress) => {
           this.setItemState(item.id, {
@@ -158,16 +162,16 @@ export default class MediaLibrary {
 
   }
 
-  handleUploadSuccess (id, url, newId) {
+  handleUploadSuccess (id, url, newId, data) {
 
-    this.setItemState(id, {
+    this.setItemState(id, { ...{
       id: newId || id,
       file: null,
       url: url,
       uploadProgress: 1,
       uploading: false,
       selected: false
-    })
+    }, ...data })
 
     const item = this.getItem(newId || id)
     item.onReadyToInsert && item.onReadyToInsert(item)
@@ -223,7 +227,7 @@ export default class MediaLibrary {
       const fileId = new Date().getTime() + '_' + UniqueIndex()
 
       this.addItem({
-        type: 'IMAGE',
+        type: 'SIDEBARIMAGE',
         id: fileId,
         file: file,
         name: fileId,

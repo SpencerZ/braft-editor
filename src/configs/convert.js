@@ -232,7 +232,7 @@ const htmlToEntity = (nodeName, node, createEntity) => {
       entityData.link_target = parentNode.target
     }
 
-    return createEntity('IMAGE', 'IMMUTABLE', entityData) 
+    return createEntity('SIDEBARIMAGE', 'IMMUTABLE', entityData) 
 
   } else if (nodeName === 'hr') {
     return createEntity('HR', 'IMMUTABLE', {}) 

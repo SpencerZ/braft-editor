@@ -1,6 +1,6 @@
 {
-  "name": "braft-editor",
-  "version": "1.8.3",
+  "name": "braft-editor-zdf",
+  "version": "0.2.3",
   "description": "Rich Text Editor Based On Draft.js",
   "main": "dist/braft.js",
   "author": "Margox",
@@ -43,9 +43,11 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.6.1",
+    "webpack-cli": "^2.0.13",
     "webpack-dev-server": "^2.4.5",
     "webpack-hot-middleware": "^2.18.0",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "webpack-sources": "^1.1.0"
   },
   "dependencies": {
     "draft-convert": "^2.0.0",

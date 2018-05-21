@@ -1,0 +1,51 @@
+.braft-editor-hotspot-image-wrap{
+  position: relative;
+  width: 200px;
+  .braft-editor-hotspot-image-cover {
+    width: 200px;
+    .ice-img sharp { 
+      display: inline-block;
+      overflow: hidden;
+      width: 200px;
+    }
+    img {
+      display: block;
+      max-width: none;
+      opacity: 1;
+      width: 200px;
+      margin-left: 0px;
+      margin-top: -0.428571px;
+    }
+  }
+  .braft-editor-hotspot-image-trigger {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 24px;
+    background: rgba(0,0,0,.6);
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    line-height: 24px;
+    z-index: 999;
+  }
+  .braft-editor-hotspot-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    .braft-ediotr-hotspot-area {
+      position: relative;
+      cursor: auto;
+    }
+  }
+}
+
+.braft-editor-hotspot-area-wrap {
+  background: rgba(102,170,255,.3);
+  position: absolute;
+  border: 2px solid #6af;
+}
