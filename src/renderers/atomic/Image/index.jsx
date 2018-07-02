@@ -59,12 +59,32 @@ export default class Image extends React.Component {
       clearFix = true
     }
 
+    let imgDisable = false;
+    if (url) {
+      if (url.indexOf("img.alicdn.com") < 0) { // 不是阿里域名下的图片
+          imgDisable = true;
+      }
+    }
+
     return (
       <div className="braft-editor-custom-block" onMouseEnter={this.showRemoveBtn} onMouseLeave={this.hideRemoveBtn}>
         <img src={url} width={width} style={{width: '220px', height: 'auto', border: '1px solid #ccc'}}/>
         <span className="braft-editor-block-remove" style={{display: this.state.showRemove ? 'block' : 'none' }}>
           <a href="javascript:;" onClick={this.removeImage}>×</a>
         </span>
+        <span style={{
+            border: "1px solid rgb(0, 0, 0)",
+            position: "absolute",
+            top: "0px",
+            width: "220px",
+            textAlign: "center",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            color: "rgb(255, 255, 255)",
+            display: "block",
+            height: "100%",
+            paddingTop: "42%",
+            display: imgDisable ? "block" : "none"
+        }}>该图片无效, 请重新上传</span>
       </div>
       // <div className="braft-media-embeder">
       //   <div
