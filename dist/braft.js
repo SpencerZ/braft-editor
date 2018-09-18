@@ -11713,18 +11713,17 @@ var Image = function (_React$Component) {
         clearFix = true;
       }
 
-      var imgDisable = false;
+      var imgDisable = true;
       if (url) {
-        if (url.indexOf("img.alicdn.com") < 0) {
-          // 不是阿里域名下的图片
-          imgDisable = true;
+        if (url.indexOf("img.alicdn.com") >= 0 || url.indexOf("m.360buyimg.com") >= 0) {
+          imgDisable = false;
         }
       }
 
       return _react2.default.createElement(
         'div',
         { className: 'braft-editor-custom-block', onMouseEnter: this.showRemoveBtn, onMouseLeave: this.hideRemoveBtn },
-        _react2.default.createElement('img', { src: url, width: width, style: { width: '220px', height: 'auto', border: '1px solid #ccc' } }),
+        _react2.default.createElement('img', { src: url, width: width, style: { width: '300px', height: 'auto', border: '1px solid #ccc' } }),
         _react2.default.createElement(
           'span',
           { className: 'braft-editor-block-remove', style: { display: this.state.showRemove ? 'block' : 'none' } },

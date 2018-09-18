@@ -59,16 +59,16 @@ export default class Image extends React.Component {
       clearFix = true
     }
 
-    let imgDisable = false;
+    let imgDisable = true;
     if (url) {
-      if (url.indexOf("img.alicdn.com") < 0) { // 不是阿里域名下的图片
-          imgDisable = true;
+      if (url.indexOf("img.alicdn.com") >=0 || url.indexOf("m.360buyimg.com") >= 0) {
+          imgDisable = false;
       }
     }
 
     return (
       <div className="braft-editor-custom-block" onMouseEnter={this.showRemoveBtn} onMouseLeave={this.hideRemoveBtn}>
-        <img src={url} width={width} style={{width: '220px', height: 'auto', border: '1px solid #ccc'}}/>
+        <img src={url} width={width} style={{width: '300px', height: 'auto', border: '1px solid #ccc'}}/>
         <span className="braft-editor-block-remove" style={{display: this.state.showRemove ? 'block' : 'none' }}>
           <a href="javascript:;" onClick={this.removeImage}>×</a>
         </span>
